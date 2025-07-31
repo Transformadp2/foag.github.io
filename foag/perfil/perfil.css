@@ -1,122 +1,109 @@
- 
-        /* Remove a sidebar */
-        .sidebar {
-            display: none;
-        }
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
 
-        /* Centraliza o conteúdo */
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f4f8;
-            flex-direction: column;
-        }
+.main-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .main-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            width: 100%;
-        }
+.profile-container {
+    background: #fff;
+    padding: 40px 60px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+}
 
-        /* Container mais largo e baixo */
-        .profile-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            background-color: #fff;
-            padding: 30px 60px;
-            border-radius: 15px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            max-width: 1000px;
-            width: 90%;
-            min-height: 450px;
-            text-align: center;
-        }
+.profile-img-container {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #4CAF50;
+    margin: 0 auto 25px;
+}
 
-        /* Foto do perfil em cima */
-        .profile-img-container {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 5px solid #4CAF50;
-            margin-bottom: 20px;
-        }
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.profile-details h3 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+}
 
-        /* Nome grande */
-        .profile-details h3 {
-            font-size: 36px;
-            margin-bottom: 15px;
-            color: #333;
-        }
+.profile-info p,
+.extra-info p {
+    font-size: 18px;
+    color: #555;
+    margin: 8px 0;
+}
 
-        /* Informações */
-        .profile-info p {
-            font-size: 20px;
-            margin: 8px 0;
-            color: #555;
-        }
+.extra-info {
+    margin-top: 20px;
+}
 
-        /* Nova seção para escola/curso */
-        .extra-info {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #444;
-            font-weight: 500;
-        }
+.btn {
+    margin-top: 30px;
+    padding: 12px 35px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
 
-        /* Botão */
-        .profile-details .btn {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 12px 35px;
-            font-size: 18px;
-            border-radius: 10px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-            margin-top: 25px;
-            display: inline-block;
-        }
+.btn:hover {
+    background-color: #45a049;
+}
 
-        .profile-details .btn:hover {
-            background-color: #45a049;
-        }
+.back-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background-color: #f44336;
+    color: white;
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s ease;
+}
 
-        /* Botão Voltar */
-        .back-btn {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            background-color: #f44336;
-            color: #fff;
-            padding: 12px 25px;
-            font-size: 18px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+.back-btn:hover {
+    background-color: #d32f2f;
+}
 
-        .back-btn:hover {
-            background-color: #e53935;
-        }
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 30px 20px;
+    }
 
-        /* Responsivo */
-        @media (max-width: 768px) {
-            .profile-container {
-                width: 95%;
-                padding: 25px;
-                min-height: auto;
-            }
-        }
+    .profile-details h3 {
+        font-size: 28px;
+    }
+
+    .btn, .back-btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}

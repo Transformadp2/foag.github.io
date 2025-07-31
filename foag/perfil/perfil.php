@@ -3,18 +3,18 @@ session_start();
 
 // Verifica se o usuário está logado
 if (!isset($_SESSION['usuario_email'])) {
-    header("Location: perfil.php");
+    header("Location: login.php");
     exit;
 }
 
 $emailLogado = $_SESSION['usuario_email'];
-$arquivo = __DIR__ . '../cadastro/usuarios.json';
+$arquivo = __DIR__ . '/../cadastro/usuarios.json';
 
 // Variáveis padrão
 $nome = '';
 $data_nascimento = '';
 $data_cadastro = '';
-$foto = 'uploads/default.png'; // Pode ser personalizado se você quiser permitir upload
+$foto = 'uploads/default.png'; // Caminho padrão da imagem
 
 // Procura o usuário no arquivo
 if (file_exists($arquivo)) {
@@ -30,7 +30,7 @@ if (file_exists($arquivo)) {
     }
 }
 
-// Se o usuário não for encontrado, volta para o login
+// Se o usuário não for encontrado
 if (empty($nome)) {
     header("Location: login.php");
     exit;
@@ -41,39 +41,37 @@ if (empty($nome)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil do Usuário - FOAG</title>
+    <title>Perfil do Usuário</title>
     <link rel="stylesheet" href="perfil.css">
 </head>
 <body>
 
-    <div class="main-content">
-        <button class="back-btn" onclick="window.history.back()">Voltar</button>
+<div class="main-content">
+    <button class="back-btn" onclick="window.history.back()">Voltar</button>
 
-        <div class="profile-container">
-            <!-- Foto do usuário -->
-            <div class="profile-img-container">
-                <img src="<?php echo $foto; ?>" alt="Foto do Perfil" class="profile-img">
+    <div class="profile-container">
+        <div class="profile-img-container">
+            <img src="<?php echo htmlspecialchars($foto); ?>" alt="Foto do Perfil" class="profile-img">
+        </div>
+
+        <div class="profile-details">
+            <h3><?php echo htmlspecialchars($nome); ?></h3>
+
+            <div class="profile-info">
+                <p><strong>Email:</strong> <?php echo htmlspecialchars($emailLogado); ?></p>
+                <p><strong>Data de Nascimento:</strong> <?php echo htmlspecialchars($data_nascimento); ?></p>
+                <p><strong>Cadastrado em:</strong> <?php echo htmlspecialchars($data_cadastro); ?></p>
             </div>
 
-            <!-- Informações do perfil -->
-            <div class="profile-details">
-                <h3><?php echo htmlspecialchars($nome); ?></h3>
-                <div class="profile-info">
-                    <p><strong>Email:</strong> <?php echo htmlspecialchars($emailLogado); ?></p>
-                    <p><strong>Data de Nascimento:</strong> <?php echo htmlspecialchars($data_nascimento); ?></p>
-                    <p><strong>Cadastrado em:</strong> <?php echo htmlspecialchars($data_cadastro); ?></p>
-                </div>
-
-                <!-- Informações extras -->
-                <div class="extra-info">
-                    <p><strong>Escola:</strong> Colégio Exemplo</p>
-                    <p><strong>Curso:</strong> Ensino Médio</p>
-                </div>
-
-                <a href="#" class="btn">Editar Perfil</a>
+            <div class="extra-info">
+                <p><strong>Escola:</strong> Colégio Exemplo</p>
+                <p><strong>Curso:</strong> Ensino Médio</p>
             </div>
+
+            <a href="#" class="btn">Editar Perfil</a>
         </div>
     </div>
+</div>
 
 </body>
 </html>
