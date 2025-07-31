@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perfil Simples</title>
+  <link rel="stylesheet" href="../perfil/perfil2.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="perfil-container">
+    <label class="foto-upload">
+      <input type="file" id="upload" accept="image/*" onchange="carregarImagem(event)" />
+      <img id="foto-perfil" src="https://via.placeholder.com/150" alt="Foto de Perfil" class="foto-perfil">
+    </label>
+
+    <section class="info-dupla">
+      <div class="coluna">
+        <p><strong>Nome:</strong> Kezia Azevedo</p>
+        <p><strong>Idade:</strong> 21 anos</p>
+        <p><strong>Função:</strong> Designer</p>
+      </div>
+      <div class="coluna">
+        <p><strong>Email:</strong> kezia@email.com</p>
+        <p><strong>Telefone:</strong> (99) 9999-9999</p>
+        <p><strong>Cidade:</strong> Palmiria - Terra</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function carregarImagem(event) {
+      const imagem = document.getElementById("foto-perfil");
+      imagem.src = URL.createObjectURL(event.target.files[0]);
+    }
+  </script>
+</body>
+</html>
